@@ -1,0 +1,52 @@
+<div class="formularioSolicitud">
+  <h2>Registro Solicitud</h2>
+  <form (ngSubmit)="guardar()" [formGroup]="solicitudForm">
+    <div class="form-group">
+      <label>Empleado</label>
+      <select name="pais" id="pais" class="form-control" formControlName = "empleado">
+        <option [ngValue]="item.id" *ngFor="let item of empleados">{{item.nombre}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Código</label>
+      <input type="text" class="form-control"  placeholder="Nombre" formControlName = "codigo">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Descripción</label>
+      <input type="text" class="form-control"  placeholder="descripcion" formControlName = "descripcion">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Resumen</label>
+      <input type="text" class="form-control" placeholder="Resumen" formControlName = "resumen">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+<div class="formularioSolicitud">
+  <h2>Solicitudes registradas</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Empleado</th>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Resumen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of solicitud">
+          <th>{{item.id}}</th>
+          <td>{{item.empleado.nombre}}</td>
+          <td>{{item.codigo}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.resumen}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
